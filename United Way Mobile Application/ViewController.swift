@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     private func setupCountyPickerView() {
         self.countyPickerView.dataSource = self
         self.countyPickerView.delegate = self
+        self.countyPickerView.selectRow(3, inComponent: 0, animated: true)
     }
     
     @IBAction func addPersonButtonPressed(_ sender: UIButton) {
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         
         if let countyCode = self.selectedCountyCode {
             
-            let url = URL(string: "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[0][age]=32")!
+            let url = URL(string: "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[0][age]=\(ageTextField.text ?? "0")")!
             //create the session object
             let session = URLSession.shared
             
@@ -110,6 +111,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.countyPickerDataSource[row].0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: self.countyPickerDataSource[row].0, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
 }
