@@ -11,8 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var countyPickerView: UIPickerView!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var outputTextField: UITextView!
+    private var selectedCountyCode:String?
     
-    private let countyPickerDataSource = ["Alameda County","Alpine County","Amador County","Butte County","Calaveras County","Colusa County","Contra Costa County","Del Norte County","El Dorado County","Fresno County","Glenn County","Humboldt County","Imperial County","Inyo County","Kem County","Kings County","Lake County","Lassen County","Los Angeles County","Madera County","Marin County","Mariposa County","Mendocino County","Merced County","Modoc County","Mono County","Monterey County","Napa County","Nevada County","Orange County","Placer County","Plumas County","Riverside County","Sacramento County","San Benito County","San Bernardino County","San Diego County","San Francisco County","San Joaquin County","San Luis Obispo County","San Mateo County","Santa Barbara County","Santa Clara County","Santa Cruz County","Shasta County","Sierra County","Siskiyou County","Solano County","Sonoma County","Stanislaus County","Sutter County","Tehama County","Trinity County","Tulare County","Tuolumne County","Ventura County","Yolo County","Yuba County"]
+    
+    private let countyPickerDataSource = [("Alameda County","94501"),("Alpine County","95646"),("Amador County","95601"),("Butte County","95965"),("Calaveras County","95221"),("Colusa County","95912"),("Contra Costa County","94506"),("Del Norte County","95531"),("El Dorado County","95613"),("Fresno County","93210"),("Glenn County","95913"),("Humboldt County","95501"),("Imperial County","92222"),("Inyo County","92328"),("Kern County","93203"),("Kings County","93202"),("Lake County","95422"),("Lassen County","96009"),("Los Angeles County","90001"),("Madera County","93601"),("Marin County","94901"),("Mariposa County","93623"),("Mendocino County","95410"),("Merced County","93620"),("Modoc County","96006"),("Mono County","93512"),("Monterey County","93426"),("Napa County","94503"),("Nevada County","95713"),("Orange County","92864"),("Placer County","95602"),("Plumas County","95915"),("Riverside County","91752"),("Sacramento County","94203"),("San Benito County","95023"),("San Bernardino County","91701"),("San Diego County","91901"),("San Francisco County","94101"),("San Joaquin County","95201"),("San Luis Obispo County","93401"),("San Mateo County","94002"),("Santa Barbara County","93013"),("Santa Clara County","94022"),("Santa Cruz County","95001"),("Shasta County","96001"),("Sierra County","95910"),("Siskiyou County","95568"),("Solano County","94510"),("Sonoma County","94922"),("Stanislaus County","95307"),("Sutter County","95659"),("Tehama County","96021"),("Trinity County","95527"),("Tulare County","93201"),("Tuolumne County","95305"),("Ventura County","91319"),("Yolo County","95605"),("Yuba County","95692")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,69 @@ class ViewController: UIViewController {
     private func setupCountyPickerView() {
         self.countyPickerView.dataSource = self
         self.countyPickerView.delegate = self
+    }
+    
+    @IBAction func addPersonButtonPressed(_ sender: UIButton) {
+        let label = UILabel(frame: self.ageLabel.frame)
+        label.text = "Age:"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        //incomplete
+    }
+    
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
+        //perform query
+        
+        if let countyCode = self.selectedCountyCode {
+            
+            let url = URL(string: "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[0][age]=32")!
+            //create the session object
+            let session = URLSession.shared
+            
+            //now create the URLRequest object using the url object
+            let request = URLRequest(url: url)
+            
+            //create dataTask using the session object to send data to the server
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+                
+                guard error == nil else {
+                    return
+                }
+                
+                guard let data = data else {
+                    return
+                }
+                
+                do {
+                    //create json object from data
+                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                        
+                        print(json)
+                    
+                        var jsonString = ""
+                        
+                        for (key, value) in json {
+                            jsonString.append(contentsOf: key)
+                            jsonString.append("=")
+                            jsonString.append(String(describing: value))
+                            jsonString.append(contentsOf: ", ")
+                        }
+                    
+                        DispatchQueue.main.async {
+                            self.outputTextField.text = jsonString
+                        }
+
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            })
+            
+            task.resume()
+            
+        }
+
     }
     
 }
@@ -37,11 +105,11 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(self.countyPickerDataSource[row])
+        self.selectedCountyCode = self.countyPickerDataSource[row].1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.countyPickerDataSource[row]
+        return self.countyPickerDataSource[row].0
     }
     
 }
