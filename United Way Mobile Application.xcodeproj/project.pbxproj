@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471611B4237A1CF2001D5D63 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471611B3237A1CF1001D5D63 /* ExpensesModel.swift */; };
 		47EA8A35237912FC003EA7D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A34237912FC003EA7D9 /* AppDelegate.swift */; };
 		47EA8A37237912FC003EA7D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A36237912FC003EA7D9 /* SceneDelegate.swift */; };
 		47EA8A39237912FC003EA7D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A38237912FC003EA7D9 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		471611B3237A1CF1001D5D63 /* ExpensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
 		47EA8A31237912FC003EA7D9 /* United Way Mobile Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "United Way Mobile Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47EA8A34237912FC003EA7D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47EA8A36237912FC003EA7D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				47EA8A34237912FC003EA7D9 /* AppDelegate.swift */,
 				47EA8A36237912FC003EA7D9 /* SceneDelegate.swift */,
 				47EA8A38237912FC003EA7D9 /* ViewController.swift */,
+				471611B3237A1CF1001D5D63 /* ExpensesModel.swift */,
 				47EA8A3A237912FC003EA7D9 /* Main.storyboard */,
 				47EA8A3D237912FC003EA7D9 /* Assets.xcassets */,
 				47EA8A3F237912FC003EA7D9 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				47EA8A39237912FC003EA7D9 /* ViewController.swift in Sources */,
 				47EA8A35237912FC003EA7D9 /* AppDelegate.swift in Sources */,
+				471611B4237A1CF2001D5D63 /* ExpensesModel.swift in Sources */,
 				47EA8A37237912FC003EA7D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

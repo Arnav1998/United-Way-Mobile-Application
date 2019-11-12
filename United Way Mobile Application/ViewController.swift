@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var countyPickerView: UIPickerView!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var outputTextField: UITextView!
+    //@IBOutlet weak var outputTextField: UITextView!
     private var selectedCountyCode:String?
     
     
@@ -64,24 +64,30 @@ class ViewController: UIViewController {
                 
                 do {
                     //create json object from data
-                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                        
-                        print(json)
-                    
-                        var jsonString = ""
-                        
-                        for (key, value) in json {
-                            jsonString.append(contentsOf: key)
-                            jsonString.append("=")
-                            jsonString.append(String(describing: value))
-                            jsonString.append(contentsOf: ", ")
-                        }
-                    
-                        DispatchQueue.main.async {
-                            self.outputTextField.text = jsonString
-                        }
+                    //print(String(data:data, encoding: .utf8)!)
 
-                    }
+                    let expenses = try JSONDecoder().decode(ExpensesModel.self, from: data)
+                    print(expenses)
+                    
+                    
+//                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+//
+//                        //print(json)
+//
+//                        var jsonString = ""
+//
+//                        for (key, value) in json {
+//                            jsonString.append(contentsOf: key)
+//                            jsonString.append("=")
+//                            jsonString.append(String(describing: value))
+//                            jsonString.append(contentsOf: ", ")
+//                        }
+//
+//                        DispatchQueue.main.async {
+//                            //self.outputTextField.text = jsonString
+//                        }
+//
+//                    }
                 } catch let error {
                     print(error.localizedDescription)
                 }
@@ -118,3 +124,5 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
 }
+    
+
