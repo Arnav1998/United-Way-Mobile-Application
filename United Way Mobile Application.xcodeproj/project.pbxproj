@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		471611B4237A1CF2001D5D63 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471611B3237A1CF1001D5D63 /* ExpensesModel.swift */; };
+		47BD6004237A43A900BE7C80 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD6002237A43A900BE7C80 /* TableViewCell.swift */; };
+		47BD6005237A43A900BE7C80 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD6003237A43A900BE7C80 /* TableViewCell.xib */; };
 		47EA8A35237912FC003EA7D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A34237912FC003EA7D9 /* AppDelegate.swift */; };
 		47EA8A37237912FC003EA7D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A36237912FC003EA7D9 /* SceneDelegate.swift */; };
 		47EA8A39237912FC003EA7D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EA8A38237912FC003EA7D9 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		471611B3237A1CF1001D5D63 /* ExpensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
+		47BD6002237A43A900BE7C80 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		47BD6003237A43A900BE7C80 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		47EA8A31237912FC003EA7D9 /* United Way Mobile Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "United Way Mobile Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47EA8A34237912FC003EA7D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47EA8A36237912FC003EA7D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				47EA8A3D237912FC003EA7D9 /* Assets.xcassets */,
 				47EA8A3F237912FC003EA7D9 /* LaunchScreen.storyboard */,
 				47EA8A42237912FC003EA7D9 /* Info.plist */,
+				47BD6002237A43A900BE7C80 /* TableViewCell.swift */,
+				47BD6003237A43A900BE7C80 /* TableViewCell.xib */,
 			);
 			path = "United Way Mobile Application";
 			sourceTree = "<group>";
@@ -129,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47EA8A41237912FC003EA7D9 /* LaunchScreen.storyboard in Resources */,
+				47BD6005237A43A900BE7C80 /* TableViewCell.xib in Resources */,
 				47EA8A3E237912FC003EA7D9 /* Assets.xcassets in Resources */,
 				47EA8A3C237912FC003EA7D9 /* Main.storyboard in Resources */,
 			);
@@ -141,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47BD6004237A43A900BE7C80 /* TableViewCell.swift in Sources */,
 				47EA8A39237912FC003EA7D9 /* ViewController.swift in Sources */,
 				47EA8A35237912FC003EA7D9 /* AppDelegate.swift in Sources */,
 				471611B4237A1CF2001D5D63 /* ExpensesModel.swift in Sources */,

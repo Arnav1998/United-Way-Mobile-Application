@@ -153,6 +153,7 @@
                         <outlet property="ageLabel" destination="m86-Fi-k2M" id="eK1-TL-ni3"/>
                         <outlet property="ageTextField" destination="Tht-Tc-Sgl" id="A5Z-vg-z4z"/>
                         <outlet property="countyPickerView" destination="kSz-Al-fXr" id="zwI-n2-xy6"/>
+                        <outlet property="tableView" destination="ZLk-9P-KlM" id="MVc-Mm-9jV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
