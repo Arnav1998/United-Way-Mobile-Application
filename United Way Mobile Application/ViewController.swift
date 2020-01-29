@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         self.ouputArray.append(("Helth care:",expensesObj.expenses?.healthcare,expensesObj.expenses?.annualHealthcare))
         self.ouputArray.append(("Transportation:",expensesObj.expenses?.transportation,expensesObj.expenses?.annualTransportation))
         self.ouputArray.append(("Miscellaneous:",expensesObj.expenses?.misc,expensesObj.expenses?.annualMisc))
-        self.ouputArray.append(("Taxes:",expensesObj.net_taxes,expensesObj.annualNet_taxes))
+        self.ouputArray.append(("Taxes:",expensesObj.monthly_taxes,expensesObj.net_taxes))
     }
     
 }

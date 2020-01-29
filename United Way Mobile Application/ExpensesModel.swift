@@ -12,9 +12,9 @@ struct ExpensesModel:Decodable {
     
     let expenses:Expense?
     
-    let net_taxes:Int?
-    var annualNet_taxes:Int? {
-        return (self.net_taxes ?? 0)*12
+    let net_taxes:Int? //rounding off errors
+    var monthly_taxes:Int? {
+        return (self.net_taxes ?? 0)/12
     }
     
 }
