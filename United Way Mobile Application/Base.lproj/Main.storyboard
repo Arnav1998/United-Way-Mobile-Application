@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,7 +28,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏡 County:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7H-q0-LrJ">
-                                                <rect key="frame" x="8" y="80" width="104.66666666666667" height="24"/>
+                                                <rect key="frame" x="8" y="80" width="104.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -44,17 +44,27 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m86-Fi-k2M">
-                                                <rect key="frame" x="76" y="360" width="42.666666666666657" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-Tc-Sgl">
-                                                <rect key="frame" x="126.66666666666667" y="360" width="210.33333333333331" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lXT-va-Llo" userLabel="Vertical Stack View">
+                                                <rect key="frame" x="8" y="360" width="398" height="34"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaM-6u-sYS" userLabel="Horizontal Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m86-Fi-k2M">
+                                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-Tc-Sgl">
+                                                                <rect key="frame" x="42.5" y="0.0" width="355.5" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFk-MW-81N">
                                                 <rect key="frame" x="8" y="402" width="398" height="36"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -100,25 +110,21 @@
                                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="kSz-Al-fXr" firstAttribute="centerX" secondItem="pRE-6S-Y5h" secondAttribute="centerX" id="16N-Kx-ldB"/>
-                                            <constraint firstItem="VFk-MW-81N" firstAttribute="top" secondItem="Tht-Tc-Sgl" secondAttribute="bottom" constant="8" id="2Dg-Fa-eKq"/>
                                             <constraint firstItem="nYp-a2-Qad" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="472-Mm-eyX"/>
-                                            <constraint firstItem="Tht-Tc-Sgl" firstAttribute="top" secondItem="jxh-U8-kNA" secondAttribute="bottom" constant="8" id="6kX-eb-31X"/>
                                             <constraint firstItem="Y7H-q0-LrJ" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="8vS-hK-LLd"/>
                                             <constraint firstItem="85g-LK-X7S" firstAttribute="leading" relation="lessThanOrEqual" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="AC4-jd-8GH"/>
                                             <constraint firstAttribute="bottom" secondItem="ZLk-9P-KlM" secondAttribute="bottom" constant="8" id="C85-zo-OA1"/>
+                                            <constraint firstAttribute="trailing" secondItem="lXT-va-Llo" secondAttribute="trailing" constant="8" id="CNC-ra-oim"/>
                                             <constraint firstItem="kSz-Al-fXr" firstAttribute="top" secondItem="Y7H-q0-LrJ" secondAttribute="bottom" id="EFl-ZQ-7Fi"/>
                                             <constraint firstItem="jxh-U8-kNA" firstAttribute="top" secondItem="kSz-Al-fXr" secondAttribute="bottom" constant="8" id="EOS-Ll-Qrb"/>
                                             <constraint firstItem="nYp-a2-Qad" firstAttribute="centerX" secondItem="pRE-6S-Y5h" secondAttribute="centerX" id="FBI-Ra-QdO"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tht-Tc-Sgl" secondAttribute="trailing" constant="77" id="FaM-U5-VXo"/>
-                                            <constraint firstItem="Tht-Tc-Sgl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="m86-Fi-k2M" secondAttribute="trailing" constant="8" symbolic="YES" id="HNo-G1-dFc"/>
-                                            <constraint firstItem="m86-Fi-k2M" firstAttribute="top" secondItem="jxh-U8-kNA" secondAttribute="bottom" constant="8" id="Hzy-O3-xhj"/>
                                             <constraint firstAttribute="trailing" secondItem="kSz-Al-fXr" secondAttribute="trailing" id="Izg-RB-jna"/>
-                                            <constraint firstItem="m86-Fi-k2M" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="76" id="L0z-WJ-NJI"/>
                                             <constraint firstItem="ZLk-9P-KlM" firstAttribute="centerX" secondItem="pRE-6S-Y5h" secondAttribute="centerX" id="LQS-JU-Gzf"/>
                                             <constraint firstAttribute="bottom" secondItem="ZLk-9P-KlM" secondAttribute="bottom" constant="8" id="MqK-1d-sdt"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="85g-LK-X7S" secondAttribute="trailing" constant="8" id="NPk-8b-7kp"/>
                                             <constraint firstItem="nYp-a2-Qad" firstAttribute="top" secondItem="pRE-6S-Y5h" secondAttribute="top" constant="40" id="PKJ-8f-rie"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="VFk-MW-81N" secondAttribute="trailing" constant="8" id="SDB-3Q-qkN"/>
+                                            <constraint firstItem="VFk-MW-81N" firstAttribute="top" secondItem="lXT-va-Llo" secondAttribute="bottom" constant="8" id="T6n-fu-QkZ"/>
                                             <constraint firstItem="VFk-MW-81N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pRE-6S-Y5h" secondAttribute="leading" id="TNi-tu-cyP"/>
                                             <constraint firstItem="ZLk-9P-KlM" firstAttribute="top" secondItem="85g-LK-X7S" secondAttribute="bottom" constant="8" id="VYr-jk-FdE"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y7H-q0-LrJ" secondAttribute="trailing" constant="20" symbolic="YES" id="YHn-EI-Hk7"/>
@@ -126,9 +132,12 @@
                                             <constraint firstItem="Y7H-q0-LrJ" firstAttribute="top" secondItem="nYp-a2-Qad" secondAttribute="bottom" constant="10" id="a7C-pb-caG"/>
                                             <constraint firstItem="jxh-U8-kNA" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="a8Q-TX-STO"/>
                                             <constraint firstItem="kSz-Al-fXr" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" id="aT7-qJ-evg"/>
+                                            <constraint firstItem="lXT-va-Llo" firstAttribute="top" secondItem="kSz-Al-fXr" secondAttribute="bottom" constant="40" id="fip-c8-KTC"/>
+                                            <constraint firstItem="jxh-U8-kNA" firstAttribute="top" secondItem="kSz-Al-fXr" secondAttribute="bottom" constant="8" id="j87-gZ-TmC"/>
                                             <constraint firstItem="ZLk-9P-KlM" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="mAy-NZ-1Ki"/>
                                             <constraint firstItem="85g-LK-X7S" firstAttribute="top" secondItem="VFk-MW-81N" secondAttribute="bottom" constant="8" id="oML-Wc-mVh"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jxh-U8-kNA" secondAttribute="trailing" constant="20" symbolic="YES" id="pyg-gr-MAU"/>
+                                            <constraint firstItem="lXT-va-Llo" firstAttribute="leading" secondItem="pRE-6S-Y5h" secondAttribute="leading" constant="8" id="tlr-XR-Ofu"/>
                                             <constraint firstItem="85g-LK-X7S" firstAttribute="centerX" secondItem="pRE-6S-Y5h" secondAttribute="centerX" id="uh1-nQ-zc3"/>
                                             <constraint firstAttribute="trailing" secondItem="ZLk-9P-KlM" secondAttribute="trailing" constant="8" id="wo3-0Z-c3p"/>
                                         </constraints>
@@ -162,6 +171,7 @@
                         <outlet property="ageTextField" destination="Tht-Tc-Sgl" id="A5Z-vg-z4z"/>
                         <outlet property="countyPickerView" destination="kSz-Al-fXr" id="zwI-n2-xy6"/>
                         <outlet property="tableView" destination="ZLk-9P-KlM" id="MVc-Mm-9jV"/>
+                        <outlet property="verticalStack" destination="lXT-va-Llo" id="7t0-2e-Qx6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

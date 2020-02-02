@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     private var selectedCountyCode:String?
+    private var lastY: CGFloat?
+    @IBOutlet weak var verticalStack: UIStackView!
+    
     
     private let countyPickerDataSource = [("Alameda County","94501"),("Alpine County","95646"),("Amador County","95601"),("Butte County","95965"),("Calaveras County","95221"),("Colusa County","95912"),("Contra Costa County","94506"),("Del Norte County","95531"),("El Dorado County","95613"),("Fresno County","93210"),("Glenn County","95913"),("Humboldt County","95501"),("Imperial County","92222"),("Inyo County","92328"),("Kern County","93203"),("Kings County","93202"),("Lake County","95422"),("Lassen County","96009"),("Los Angeles County","90001"),("Madera County","93601"),("Marin County","94901"),("Mariposa County","93623"),("Mendocino County","95410"),("Merced County","93620"),("Modoc County","96006"),("Mono County","93512"),("Monterey County","93426"),("Napa County","94503"),("Nevada County","95713"),("Orange County","92864"),("Placer County","95602"),("Plumas County","95915"),("Riverside County","91752"),("Sacramento County","94203"),("San Benito County","95023"),("San Bernardino County","91701"),("San Diego County","91901"),("San Francisco County","94101"),("San Joaquin County","95201"),("San Luis Obispo County","93401"),("San Mateo County","94002"),("Santa Barbara County","93013"),("Santa Clara County","94022"),("Santa Cruz County","95001"),("Shasta County","96001"),("Sierra County","95910"),("Siskiyou County","95568"),("Solano County","94510"),("Sonoma County","94922"),("Stanislaus County","95307"),("Sutter County","95659"),("Tehama County","96021"),("Trinity County","95527"),("Tulare County","93201"),("Tuolumne County","95305"),("Ventura County","91319"),("Yolo County","95605"),("Yuba County","95692")]
     private let array = ["first","second","third"]
@@ -25,6 +28,7 @@ class ViewController: UIViewController {
         setupCountyPickerView()
         setupTableView()
         setupTextField()
+//        lastY = self.ageTextField.frame.maxY
     }
 
     private func setupCountyPickerView() {
@@ -45,12 +49,103 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addPersonButtonPressed(_ sender: UIButton) {
+        
+        //create a label and a textfield
+        
+        //put them in a horizontal stack
+        
+        //assign constraints to them same as the one in the parent view
+        
+        //insert it into the verttical stack and assign the spacing attribute
+        
+        
         let label = UILabel(frame: self.ageLabel.frame)
         label.text = "Age:"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         
-        //incomplete
+        let textField = UITextField(frame: self.ageTextField.frame)
+        textField.backgroundColor = UIColor.white
+        
+        
+        let horizontalStack = UIStackView()
+        horizontalStack.axis = .horizontal
+        
+        horizontalStack.addArrangedSubview(label)
+        horizontalStack.addArrangedSubview(textField)
+        
+        self.verticalStack.addArrangedSubview(horizontalStack)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        lastY! += 8
+//
+//        let label = UILabel(frame: self.ageLabel.frame)
+//        label.text = "Age:"
+//        label.font = UIFont.boldSystemFont(ofSize: 20)
+//
+//        //incomplete
+//        let contentView = UIView()
+//        addViewsTo(contentView)
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(contentView)
+//
+//        // Add size constraints to the content view (260, 30)
+//        NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal,
+//                           toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 260.0).isActive = true
+//        NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .equal,
+//                           toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
+//        // Add position constraints to the content view (horizontal center, 100 from the top)
+//        NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: lastY!).isActive = true
+//        NSLayoutConstraint(item: contentView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        
     }
+    
+//    func addViewsTo(_ contentView: UIView) {
+//
+//        print("Hi")
+//        // Add a label with size of (100, 30)
+//        let label = UILabel()
+//        label.text = "Age:"
+//        label.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 30.0)
+//        contentView.addSubview(label)
+//
+//        // Add a button with size of (150, 30)
+//        let button = UIButton()
+//        button.setTitle("Button of A", for: .normal)
+//        button.setTitleColor(.blue, for: .normal)
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.frame = CGRect(x: 110.0, y: 0.0, width: 150.0, height: 30.0)
+//        contentView.addSubview(button)
+//    }
     
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
