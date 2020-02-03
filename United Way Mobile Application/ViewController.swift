@@ -62,10 +62,12 @@ class ViewController: UIViewController {
         let label = UILabel(frame: self.ageLabel.frame)
         label.text = "Age:"
         label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .white
+        label.widthAnchor.constraint(equalToConstant: self.ageLabel.frame.size.width).isActive = true
         
         let textField = UITextField(frame: self.ageTextField.frame)
         textField.backgroundColor = UIColor.white
-        
+        textField.borderStyle = .roundedRect
         
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
