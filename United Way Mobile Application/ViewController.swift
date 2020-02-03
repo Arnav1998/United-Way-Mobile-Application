@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    private var selectedCountyCode:String?
-    private var lastY: CGFloat?
+//    private var lastY: CGFloat?
     @IBOutlet weak var verticalStack: UIStackView!
-    
+    private var selectedCountyCode:String?
+    private var ageTextFieldCounter = 1
     
     private let countyPickerDataSource = [("Alameda County","94501"),("Alpine County","95646"),("Amador County","95601"),("Butte County","95965"),("Calaveras County","95221"),("Colusa County","95912"),("Contra Costa County","94506"),("Del Norte County","95531"),("El Dorado County","95613"),("Fresno County","93210"),("Glenn County","95913"),("Humboldt County","95501"),("Imperial County","92222"),("Inyo County","92328"),("Kern County","93203"),("Kings County","93202"),("Lake County","95422"),("Lassen County","96009"),("Los Angeles County","90001"),("Madera County","93601"),("Marin County","94901"),("Mariposa County","93623"),("Mendocino County","95410"),("Merced County","93620"),("Modoc County","96006"),("Mono County","93512"),("Monterey County","93426"),("Napa County","94503"),("Nevada County","95713"),("Orange County","92864"),("Placer County","95602"),("Plumas County","95915"),("Riverside County","91752"),("Sacramento County","94203"),("San Benito County","95023"),("San Bernardino County","91701"),("San Diego County","91901"),("San Francisco County","94101"),("San Joaquin County","95201"),("San Luis Obispo County","93401"),("San Mateo County","94002"),("Santa Barbara County","93013"),("Santa Clara County","94022"),("Santa Cruz County","95001"),("Shasta County","96001"),("Sierra County","95910"),("Siskiyou County","95568"),("Solano County","94510"),("Sonoma County","94922"),("Stanislaus County","95307"),("Sutter County","95659"),("Tehama County","96021"),("Trinity County","95527"),("Tulare County","93201"),("Tuolumne County","95305"),("Ventura County","91319"),("Yolo County","95605"),("Yuba County","95692")]
     private let array = ["first","second","third"]
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         //assign constraints to them same as the one in the parent view
         
         //insert it into the verttical stack and assign the spacing attribute
-        
+        self.ageTextFieldCounter += 1
         
         let label = UILabel(frame: self.ageLabel.frame)
         label.text = "Age:"
@@ -68,6 +68,8 @@ class ViewController: UIViewController {
         let textField = UITextField(frame: self.ageTextField.frame)
         textField.backgroundColor = UIColor.white
         textField.borderStyle = .roundedRect
+        
+        textField.tag = 2
         
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
@@ -81,7 +83,7 @@ class ViewController: UIViewController {
         
         
         
-        
+        //assign id to each textfield created so that the data in them can be accessed
         
         
         
@@ -152,11 +154,29 @@ class ViewController: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         if let countyCode = self.selectedCountyCode {
-            let url = URL(string: "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[0][age]=\(ageTextField.text ?? "0")")!
+            
+            var urlString: String?
+            
+            if (self.ageTextFieldCounter == 1) {
+                urlString = "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[0][age]=\(ageTextField.text ?? "0")"
+            } else {
+                for age in 1...self.ageTextFieldCounter {
+                    if (age == 1) {
+                        urlString = "https://bing.benefitkitchen.com/api/bing?address=\(countyCode)&persons[\(age-1)][age]=\(ageTextField.text ?? "0")"
+                    } else {
+                        if let textField = self.view.viewWithTag(age) as? UITextField {
+                            if (textField.text != "") {
+                                urlString?.append("&persons[\(age-1)][age]=\(textField.text!)")
+                            }
+                        }
+                    }
+                }
+            }
+            let url = URL(string: urlString!)
             //create the session object
             let session = URLSession.shared
             //now create the URLRequest object using the url object
-            let request = URLRequest(url: url)
+            let request = URLRequest(url: url!)
             //create dataTask using the session object to send data to the server
             let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
                 guard error == nil else {
@@ -170,7 +190,7 @@ class ViewController: UIViewController {
                     self.ouputArray = []
                     self.createOutputArray(from: expenses)
                     DispatchQueue.main.async {
-                         self.tableView.reloadData()
+                        self.tableView.reloadData()
                     }
                 } catch let error {
                     print(error.localizedDescription)
